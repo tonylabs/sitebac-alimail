@@ -1,0 +1,7 @@
+name: 'AliYun SMTPDM Support'
+type: module
+description: 'Customize header for SMTP Authentication, especially AliYun Email delivery service.'
+package: Custom
+core_version_requirement: '^10 || ^11'
+dependencies:
+    - smtp:smtp

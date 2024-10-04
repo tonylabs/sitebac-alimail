@@ -1,1 +1,1 @@
-# sitebac-alimail
+# SiteBac Email SMTP Fixer

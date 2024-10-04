@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * Implements hook_mail().
+ */
+function alimail_mail_alter(&$message)
+{
+    $site_name = \Drupal::config('system.site')->get('name');
+    $config_factory = \Drupal::service('config.factory');
+    $smtp_config = $config_factory->get('smtp.settings');
+    $from_address = $smtp_config->get('smtp_from');
+    $message['from'] = $from_address;
+    $message['reply-to'] = $from_address;
+    $message['headers']['From'] = "{$site_name} <{$from_address}>";
+    $message['headers']['Sender'] = $from_address;
+    $message['headers']['Return-Path'] = $from_address;
+}
